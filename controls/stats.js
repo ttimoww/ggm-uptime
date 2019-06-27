@@ -5,8 +5,8 @@ const Day = require('./../models/Day');
 router.post('/stats', (req, res) => {
 
     Day.find({
-        'date': {
-            $in: req.body.dates
+        '_id': {
+            $in: req.body.ids
         }
     }, (err, foundDays) => {
         if (err) {

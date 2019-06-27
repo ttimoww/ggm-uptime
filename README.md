@@ -33,6 +33,25 @@ npm run dev
 
 ## Backend routes
 
+### /api/days (get)
+
+**Response body**
+Example:
+```
+{
+    [{
+        _id: 5d1226c4a74bca35fc9bd6cc,
+        day: 'Tuesday,
+        date: 2019-6-25
+    },
+    {
+        _id: 5da74bca35fc9bd6cc1226c4,
+        day: 'Wednesday,
+        date: 2019-6-26
+    }]
+}
+```
+
 ### /api/stats (POST)
 Returns the uptime data from the provided days
 
@@ -40,7 +59,7 @@ Returns the uptime data from the provided days
 Example:
 ```
 {
-    dates: ['2019-6-27', '2019-6-26']
+    ids: ['5d1226c4a9e0ca35fc9bd6cc', '5d129961f8ebd02628fa17ad']
 }
 ```
 

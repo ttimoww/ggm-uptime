@@ -8,6 +8,10 @@ require('./connection');
 // Cron
 require('./cronjob/main');
 
+// Days
+const days = require('./controls/days');
+app.use('/api', days);
+
 // Stats
 const stats = require('./controls/stats');
 app.use('/api', stats);
