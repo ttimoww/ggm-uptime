@@ -6,7 +6,28 @@ This repository contains an app to test the uptime of Neatlynamed. The uptime of
 ---
 
 ## Installing
-....
+1. Run `git clone https://github.com/ttimoww/ggm-uptime` to clone this repository.
+2. Run `npm install` & `npm run client-install` to install depencies.
+
+---
+
+## Quick start
+``` bash
+
+# Run the Express server only
+npm run server
+
+# Run the React client only
+npm run client
+
+# Run the client & server 
+npm run start
+
+# Run the client & server wwith Sass compiling
+npm run dev
+
+# Server runs on http://localhost:9090 and client on http://localhost:3000
+```
 
 ---
 
