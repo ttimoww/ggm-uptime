@@ -23,7 +23,7 @@ class DailyStats extends Component {
                 <p>Stats by day</p>
                 <div className="toggle" onClick={this.handleToggle} style={rotateToggle}></div>
             </header>
-                <div className="dailystats__container">
+                <div className="dailystats__container mainsection__container">
                     <h1>List out stats by day</h1>
                 </div>
             </section>

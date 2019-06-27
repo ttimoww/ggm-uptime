@@ -23,7 +23,7 @@ class AllStats extends Component {
                 <p>All stats</p>
                 <div className="toggle" onClick={this.handleToggle} style={rotateToggle}></div>
             </header>
-                <div className="allstats__container">
+                <div className="allstats__container mainsection__container">
                     <h1>List out stats from all selected days</h1>
                 </div>
             </section>

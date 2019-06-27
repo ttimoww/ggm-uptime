@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import Day from './Day';
 
 class Days extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            toggledUp: false
+            toggledUp: false,
+            days: []
          }
     }
 
@@ -12,10 +14,20 @@ class Days extends Component {
         this.state.toggledUp ? this.setState({toggledUp: false}) : this.setState({toggledUp: true});
     }
 
+    componentDidMount = () => {
+        fetch('/api/days')
+        .then(resp => resp.json())
+        .then(data => this.setState({days: data}));
+      }
+
     render() { 
 
         const toggleUp = this.state.toggledUp ? {height: '50px'} : null;
         const rotateToggle = this.state.toggledUp ? {transform: 'rotate(180deg)'} : null;
+        
+        const days = this.state.days.map(day => (
+            <Day key={day._id} id={day._id} day={day.day} date={day.date} selectedDaysChange={this.props.selectedDaysChange} />
+        ));
 
         return ( 
             <section className="days mainsection" style={toggleUp}>
@@ -23,8 +35,8 @@ class Days extends Component {
                 <p>Days</p>
                 <div className="toggle" onClick={this.handleToggle} style={rotateToggle}></div>
             </header>
-                <div className="days__container">
-                    <h1>List out all days</h1>
+                <div className="days__container mainsection__container">
+                    {days}
                 </div>
             </section>
          );
