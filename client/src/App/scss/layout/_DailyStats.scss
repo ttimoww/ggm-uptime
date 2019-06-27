@@ -1,0 +1,12 @@
+section.dailystats{
+    width: 100%;
+
+    @include respond-above(sm){
+        grid-column: 3 / 8;
+        grid-row: 2 / 3;
+    }
+
+    div.dailystats__container{
+        padding: 10px;
+    }
+}

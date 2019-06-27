@@ -1,0 +1,12 @@
+section.allstats{
+    width: 100%;
+
+    @include respond-above(sm){
+        grid-column: 3 / 8;
+        grid-row: 1 / 2;
+    }
+    
+    div.allstats__container{
+        padding: 10px;
+    }
+}

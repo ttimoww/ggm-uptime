@@ -73,6 +73,7 @@ router.post('/stats', (req, res) => {
         for (let i = 0; i < days.length; i++) {
 
             let day = {
+                _id: days[i]._id,
                 day: days[i].day,
                 date: days[i].date,
                 data: {

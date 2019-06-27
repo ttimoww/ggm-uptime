@@ -1,0 +1,12 @@
+section.days{
+    width: 100%;
+
+    @include respond-above(sm){
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+    }
+
+    div.days__container{
+        padding: 10px;
+    }
+}

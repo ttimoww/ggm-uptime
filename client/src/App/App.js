@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './css/index.css';
+import Days from './Days';
+import AllStats from './allStats/AllStats';
+import DailyStats from './dailyStats/DailyStats';
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +12,12 @@ class App extends Component {
   render() { 
     return ( 
       <div className="app">
-        <h1>App component</h1>
+      <div className="app__background"></div>
+        <div className="app__container">
+          <Days />
+          <AllStats />
+          <DailyStats />
+        </div>
       </div>
      );
   }
