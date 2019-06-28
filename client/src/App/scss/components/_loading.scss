@@ -1,0 +1,26 @@
+div.loading{
+    display: block;
+    margin: 20px auto;
+    transform: translate(-50%, -50%);
+    height: 25px;
+    width: 25px;
+    background-image: url(../images/refresh.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    animation: spin 1s infinite;
+    -webkit-animation: spin 1s infinite;
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}

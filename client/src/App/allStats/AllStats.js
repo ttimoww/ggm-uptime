@@ -17,6 +17,7 @@ class AllStats extends Component {
         const toggleUp = this.state.toggledUp ? {height: '50px'} : null;
         const rotateToggle = this.state.toggledUp ? {transform: 'rotate(180deg)'} : null;
 
+
         return ( 
             <section className="allstats mainsection" style={toggleUp}>
             <header>
@@ -24,7 +25,6 @@ class AllStats extends Component {
                 <div className="toggle" onClick={this.handleToggle} style={rotateToggle}></div>
             </header>
                 <div className="allstats__container mainsection__container">
-                    <h1>List out stats from all selected days</h1>
                 </div>
             </section>
          );

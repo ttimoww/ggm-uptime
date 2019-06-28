@@ -25,6 +25,18 @@ class DailyStats extends Component {
             </header>
                 <div className="dailystats__container mainsection__container">
                     <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+
+                    <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+                    <h1>List out stats by day</h1>
+
                 </div>
             </section>
          );

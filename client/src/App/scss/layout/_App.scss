@@ -12,16 +12,18 @@ div.app{
 
     div.app__container{
         padding: 20px;
-        display: flex;
-        flex-direction: column;
+        display: grid;
         max-width: 1200px;
         margin: 0 auto;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
 
         @include respond-above(sm){
             padding: 40px;
+            max-height: 100%;
+            box-sizing: border-box;
         }
 
-        
         @include respond-above(sm){
             display: grid;
             grid-gap: 10px;
@@ -32,18 +34,25 @@ div.app{
 
     section.mainsection{
         background-color: #F0F1F6;
-        margin-bottom: 20px;
         border-radius: 5px;
         overflow: hidden;
         height: 100%;
         transition: height .5s;
         -webkit-transition: height .5s;
         -moz-transition: height .5s;
-        -ms-transition: height .5s;  
-        -o-transition: height .5s; 
+        -ms-transition: height .5s;
+        -o-transition: height .5s;
 
-        @include respond-above(sm){
+         @include respond-above(sm){
                 margin: 0;
+        }
+
+        &.collapse{
+            height: 50px;
+
+            &.mainsection__container{
+                overflow: hidden !important;
+            }
         }
 
         header{
@@ -83,7 +92,13 @@ div.app{
         }
 
         div.mainsection__container{
-            // overflow-y: scroll;
+            position: relative;
+            max-height: 400px;
+            overflow-y: scroll;
+
+            @include respond-above(sm){
+                max-height: none;
+            }
         }        
     }
 }

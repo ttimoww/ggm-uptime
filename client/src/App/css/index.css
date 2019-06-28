@@ -10,6 +10,68 @@ html, body {
   height: 100%;
 }
 
+div.loading {
+  display: block;
+  margin: 20px auto;
+  transform: translate(-50%, -50%);
+  height: 25px;
+  width: 25px;
+  background-image: url(../images/refresh.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  animation: spin 1s infinite;
+  -webkit-animation: spin 1s infinite;
+}
+
+@-moz-keyframes spin {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.scrollbar::-webkit-scrollbar {
+  background-color: #fff;
+  width: 16px;
+  cursor: pointer;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: #F0F1F6;
+}
+
+.scrollbar::-webkit-scrollbar-track:hover {
+  background-color: #F0F1F6;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #babac0;
+  border-radius: 16px;
+  border: 5px solid #F0F1F6;
+}
+
+.scrollbar::-webkit-scrollbar-button {
+  display: none;
+}
+
 div.app {
   position: relative;
 }
@@ -24,14 +86,17 @@ div.app div.app__background {
 }
 div.app div.app__container {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   max-width: 1200px;
   margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
 }
 @media (min-width: 768px) {
   div.app div.app__container {
     padding: 40px;
+    max-height: 100%;
+    box-sizing: border-box;
   }
 }
 @media (min-width: 768px) {
@@ -44,7 +109,6 @@ div.app div.app__container {
 }
 div.app section.mainsection {
   background-color: #F0F1F6;
-  margin-bottom: 20px;
   border-radius: 5px;
   overflow: hidden;
   height: 100%;
@@ -58,6 +122,12 @@ div.app section.mainsection {
   div.app section.mainsection {
     margin: 0;
   }
+}
+div.app section.mainsection.collapse {
+  height: 50px;
+}
+div.app section.mainsection.collapse.mainsection__container {
+  overflow: hidden !important;
 }
 div.app section.mainsection header {
   background-color: #FFF;
@@ -91,6 +161,17 @@ div.app section.mainsection header div.toggle {
   transition: transform 0.3s;
   cursor: pointer;
 }
+div.app section.mainsection div.mainsection__container {
+  position: relative;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+@media (min-width: 768px) {
+  div.app section.mainsection div.mainsection__container {
+    max-height: none;
+  }
+}
+
 section.days {
   width: 100%;
   border-bottom: 2px solid #EAEBF0;
@@ -103,6 +184,13 @@ section.days {
 }
 section.days div.days__container {
   margin-top: 10px;
+}
+@media (min-width: 768px) {
+  section.days div.days__container {
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+    box-sizing: border-box;
+  }
 }
 
 div.day {
@@ -130,7 +218,8 @@ div.day div.day__container p.day__date {
 }
 div.day div.day__container p.day__id {
   font-size: 8px;
-  opacity: 0.6;
+  opacity: 0.4;
+  letter-spacing: 0.3px;
 }
 
 section.allstats {

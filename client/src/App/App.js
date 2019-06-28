@@ -8,20 +8,39 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      selectedDays : []
+      selectedDays : [],
+      stats: {}
      }
   }
 
-  handleSelectedDaysChange = (id) => {
-    if (this.state.selectedDays.includes(id)){
-      this.setState(prevState => ({selectedDays: prevState.selectedDays.filter(id => {
-        return id !== id;
-      })}))
+  /**
+   * Handle the selected days
+   * @param {String} id The id of the day to be removed
+   */
+  handleSelectedDaysChange = (givenId) => {
+    if (this.state.selectedDays.includes(givenId)){
+      this.setState(prevState => {
+        return {selectedDays: prevState.selectedDays.filter(id => id !== givenId)}
+      }, () => this.getStats())
     }else{
       this.setState(prevState => {
-        return {selectedDays: [...prevState.selectedDays, id]}
-      })
+        return {selectedDays: [...prevState.selectedDays, givenId]}
+      }, () =>  this.getStats())
     }
+  }
+
+  getStats = () => {
+    const body = JSON.stringify({ids: this.state.selectedDays});
+
+    fetch('/api/stats', {
+      method: 'POST',
+      body: body,
+      headers: {
+        'Content-type': 'Application/Json'
+      }
+    })
+    .then(resp => resp.json())
+    .then(data => this.setState({stats: data}));
   }
 
   render() { 
@@ -29,8 +48,8 @@ class App extends Component {
       <div className="app">
       <div className="app__background"></div>
         <div className="app__container">
-          <Days selectedDaysChange={this.handleSelectedDaysChange} />
-          <AllStats />
+          <Days selectedDaysChange={this.handleSelectedDaysChange} stats={this.state.stats} />
+          <AllStats selectedDays={this.state.selectedDays} />
           <DailyStats />
         </div>
       </div>
