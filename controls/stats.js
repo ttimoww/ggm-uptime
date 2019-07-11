@@ -3,7 +3,7 @@ const router = express.Router();
 const Day = require('./../models/Day');
 
 router.post('/stats', (req, res) => {
-
+    console.log(`Looking for ${req.body.ids}`);
     Day.find({
         '_id': {
             $in: req.body.ids
@@ -116,66 +116,64 @@ router.post('/stats', (req, res) => {
             /**
              * This hurts my eyes but it does all the math
              */
+
+             for (let j = 0; j < days[i].tests.length; j++){
+                response.overal.total += 1;
+             }
+
             for (let j = 0; j < days[i].tests.length; j++) {
                 if (days[i].tests[j].status === 200) {
-                    response.overal.total += 1;
                     response.overal.s200.count += 1;
                     day.data.total += 1;
                     day.data.s200.count += 1;
-                    response.overal.s200.percentage = response.overal.s200.count / response.overal.total * 100;
-                    day.data.s200.percentage = day.data.s200.count / day.data.total * 100;
                 } else if (days[i].tests[j].status === 400) {
-                    response.overal.total += 1;
                     response.overal.s400.count += 1;
                     day.data.total += 1;
                     day.data.s400.count += 1;
-                    response.overal.s400.percentage = response.overal.s400.count / response.overal.total * 100;
-                    day.data.s400.percentage = day.data.s400.count / day.data.total * 100;
                 } else if (days[i].tests[j].status === 401) {
-                    response.overal.total += 1;
                     response.overal.s401.count += 1;
                     day.data.total += 1;
                     day.data.s401.count += 1;
-                    response.overal.s401.percentage = response.overal.s401.count / response.overal.total * 100;
-                    day.data.s401.percentage = day.data.s401.count / day.data.total * 100;
                 } else if (days[i].tests[j].status === 403) {
-                    response.overal.total += 1;
                     response.overal.s403.count += 1;
                     day.data.total += 1;
                     day.data.s403.count += 1;
-                    response.overal.s403.percentage = response.overal.s403.count / response.overal.total * 100;
-                    day.data.s403.percentage = day.data.s403.count / day.data.total * 100;
                 } else if (days[i].tests[j].status === 500) {
-                    response.overal.total += 1;
                     response.overal.s500.count += 1;
                     day.data.total += 1;
                     day.data.s500.count += 1;
-                    response.overal.s500.percentage = response.overal.s500.count / response.overal.total * 100;
-                    day.data.s500.percentage = day.data.s500.count / day.data.total * 100;
                 } else if (days[i].tests[j].status === 501) {
-                    response.overal.total += 1;
                     response.overal.s501.count += 1;
                     day.data.total += 1;
                     day.data.s501.count += 1;
-                    response.overal.s501.percentage = response.overal.s501.count / response.overal.total * 100;
-                    day.data.s501.percentage = day.data.s501.count / day.data.total * 100;
                 } else if (days[i].tests[j].status === 502) {
-                    response.overal.total += 1;
                     response.overal.s502.count += 1;
                     day.data.total += 1;
                     day.data.s502.count += 1;
-                    response.overal.s502.percentage = response.overal.s502.count / response.overal.total * 100;
-                    day.data.s502.percentage = day.data.s502.count / day.data.total * 100;
                 } else if (days[i].tests[j].status === 503) {
-                    response.overal.total += 1;
                     response.overal.s503.count += 1;
                     day.data.total += 1;
                     day.data.s503.count += 1;
-                    response.overal.s503.percentage = response.overal.s503.count / response.overal.total * 100;
-                    day.data.s503.percentage = day.data.s503.count / day.data.total * 100;
                 }
+
+                response.overal.s503.percentage = response.overal.s503.count / response.overal.total * 100;
+                response.overal.s502.percentage = response.overal.s502.count / response.overal.total * 100;
+                response.overal.s500.percentage = response.overal.s500.count / response.overal.total * 100;
+                response.overal.s401.percentage = response.overal.s401.count / response.overal.total * 100;
+                response.overal.s400.percentage = response.overal.s400.count / response.overal.total * 100;
+                response.overal.s200.percentage = response.overal.s200.count / response.overal.total * 100;
+                response.overal.s501.percentage = response.overal.s501.count / response.overal.total * 100;
+                response.overal.s403.percentage = response.overal.s403.count / response.overal.total * 100;
+
+                day.data.s200.percentage = day.data.s200.count / day.data.total * 100;
+                day.data.s400.percentage = day.data.s400.count / day.data.total * 100;
+                day.data.s401.percentage = day.data.s401.count / day.data.total * 100;
+                day.data.s403.percentage = day.data.s403.count / day.data.total * 100;
+                day.data.s500.percentage = day.data.s500.count / day.data.total * 100;
+                day.data.s501.percentage = day.data.s501.count / day.data.total * 100;
+                day.data.s502.percentage = day.data.s502.count / day.data.total * 100;
+                day.data.s503.percentage = day.data.s503.count / day.data.total * 100;
             }
-            response.days.push(day);
         }
 
         res.status(200);

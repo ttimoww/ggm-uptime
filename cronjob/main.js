@@ -51,9 +51,9 @@ let statusCheck = (url) => {
  * @param {Object} resp Response object from the check
  */
 let saveCheck = (url, resp) => {
-    const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const today = new Date();
-    let day = weekdays[today.getDay() - 1];
+    let day = weekdays[today.getDay()];
 	const date = today.toLocaleDateString();
     const time = today.toLocaleTimeString();
 
@@ -96,6 +96,6 @@ let task = cron.schedule('* * * * *', () => {
     timezone: "Europe/Amsterdam"
 });
 
-//task.start();
+task.start();
 
 module.exports = task;

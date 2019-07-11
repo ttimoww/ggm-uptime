@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactMinimalPieChart from 'react-minimal-pie-chart';
 
 class DailyStats extends Component {
     constructor(props) {
