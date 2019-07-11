@@ -86,21 +86,14 @@ div.app div.app__background {
 }
 div.app div.app__container {
   padding: 20px;
-  display: grid;
   max-width: 1200px;
   margin: 0 auto;
-  grid-template-columns: 1fr;
-  grid-row-gap: 20px;
 }
 @media (min-width: 768px) {
   div.app div.app__container {
     padding: 40px;
     max-height: 100%;
     box-sizing: border-box;
-  }
-}
-@media (min-width: 768px) {
-  div.app div.app__container {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(7, 1fr);
@@ -110,8 +103,14 @@ div.app div.app__container {
 div.app section.mainsection {
   background-color: #F0F1F6;
   border-radius: 5px;
+  -webkit-border-border-radius: 5px;
+  -moz-border-border-radius: 5px;
+  -ms-border-border-radius: 5px;
+  -o-border-border-radius: 5px;
   overflow: hidden;
-  height: 100%;
+  height: 450px;
+  display: block;
+  margin: 0px 0px 20px 0px;
   transition: height 0.5s;
   -webkit-transition: height 0.5s;
   -moz-transition: height 0.5s;
@@ -121,10 +120,16 @@ div.app section.mainsection {
 @media (min-width: 768px) {
   div.app section.mainsection {
     margin: 0;
+    height: 100%;
   }
 }
 div.app section.mainsection.collapse {
   height: 50px;
+}
+@media (min-width: 768px) {
+  div.app section.mainsection.collapse {
+    height: auto !important;
+  }
 }
 div.app section.mainsection.collapse.mainsection__container {
   overflow: hidden !important;
@@ -161,10 +166,15 @@ div.app section.mainsection header div.toggle {
   transition: transform 0.3s;
   cursor: pointer;
 }
+@media (min-width: 768px) {
+  div.app section.mainsection header div.toggle {
+    display: none;
+  }
+}
 div.app section.mainsection div.mainsection__container {
   position: relative;
-  max-height: 400px;
   overflow-y: scroll;
+  max-height: calc(100% - 60px);
 }
 @media (min-width: 768px) {
   div.app section.mainsection div.mainsection__container {
@@ -233,6 +243,52 @@ section.allstats {
 }
 section.allstats div.allstats__container {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 576px) {
+  section.allstats div.allstats__container {
+    flex-direction: row;
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+    box-sizing: border-box;
+  }
+}
+section.allstats div.allstats__container div.allstats__chart {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 576px) {
+  section.allstats div.allstats__container div.allstats__chart {
+    flex: 2;
+  }
+}
+section.allstats div.allstats__container div.allstats__chart div.allstats__chart__container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  section.allstats div.allstats__container div.allstats__chart div.allstats__chart__container {
+    width: 250px;
+  }
+}
+@media (min-width: 768px) {
+  section.allstats div.allstats__container div.allstats__chart div.allstats__chart__container {
+    width: 200px;
+  }
+}
+section.allstats div.allstats__container div.allstats__info {
+  border: 1px solid blue;
+  flex: 1;
+}
+@media (min-width: 992px) {
+  section.allstats div.allstats__container div.allstats__info {
+    flex: 2;
+  }
 }
 
 section.dailystats {
