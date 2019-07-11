@@ -46,11 +46,42 @@ section.allstats{
         }
 
         div.allstats__info{
-            border: 1px solid blue;
             flex: 1;
+            
+            @include respond-above(xs){
+                display: flex;
+                align-items: center;
+            }
 
             @include respond-above(md){
                 flex:  2;
+            }
+
+            div.allstats__info__container{
+                padding: 10px 0px 0px 0px;
+                p{
+                    margin-top: 10px;
+                }
+
+                table{
+                    margin: 0 auto;
+                    max-width: 400px;
+
+                    div{
+                        width: 50px;
+                        height: 20px;
+                        box-sizing: border-box;
+                        border: 3px solid transparent;
+                    }
+
+                    th{
+                        text-align: left;
+                    }
+
+                    td{
+                        width: 200px;
+                    }
+                }
             }
         }
     }

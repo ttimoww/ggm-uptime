@@ -7,40 +7,49 @@ const AllStatsData = (props) => {
             <table>
                 <tbody>
                     <tr>
+                        <th>Color</th>
                         <th>Status</th>
                         <th>Percentage</th>
                     </tr>
                     <tr>
+                        <td><div style={{backgroundColor: '#63CDDA'}}></div></td>
                         <td>200</td>
-                        <td>{props.stats.overal.s200.percentage.toString}%</td>
+                        <td>{Math.round(props.stats.overal.s200.percentage)}%</td>
                     </tr>
                     <tr>
+                        <td><div style={{backgroundColor: '#e67e22'}}></div></td>
                         <td>400</td>
-                        <td>{props.stats.overal.s400.percentage}%</td>
+                        <td>{Math.round(props.stats.overal.s400.percentage)}%</td>
                     </tr>
                     <tr>
+                        <td><div style={{backgroundColor: '#e67e22'}}></div></td>
                         <td>401</td>
-                        <td>{props.stats.overal.s401.percentage}%</td>
+                        <td>{Math.round(props.stats.overal.s401.percentage)}%</td>
                     </tr>
                     <tr>
+                        <td><div style={{backgroundColor: '#e67e22'}}></div></td>
                         <td>403</td>
-                        <td>{props.stats.overal.s403.percentage}%</td>
+                        <td>{Math.round(props.stats.overal.s403.percentage)}%</td>
                     </tr>
                     <tr>
+                        <td><div style={{backgroundColor: '#e74c3c'}}></div></td>
                         <td>500</td>
-                        <td>{props.stats.overal.s500.percentage}%</td>
+                        <td>{Math.round(props.stats.overal.s500.percentage)}%</td>
                     </tr>
                     <tr>
-                        <td>501</td>
-                        <td>{props.stats.overal.s501.percentage}%</td>
+                        <td><div style={{backgroundColor: '#e74c3c'}}></div></td>
+                       <td>501</td>
+                        <td>{Math.round(props.stats.overal.s501.percentage)}%</td>
                     </tr>
                     <tr>
+                        <td><div style={{backgroundColor: '#e74c3c'}}></div></td>
                         <td>502</td>
-                        <td>{props.stats.overal.s502.percentage}%</td>
+                        <td>{Math.round(props.stats.overal.s502.percentage)}%</td>
                     </tr>
                     <tr>
+                        <td><div style={{backgroundColor: '#e74c3c'}}></div></td>
                         <td>503</td>
-                        <td>{props.stats.overal.s503.percentage}%</td>
+                        <td>{Math.round(props.stats.overal.s503.percentage)}%</td>
                     </tr>
                 </tbody>
             </table>

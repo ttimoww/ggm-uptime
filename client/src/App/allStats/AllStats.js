@@ -35,7 +35,7 @@ class AllStats extends Component {
 
         let content;
         if (!this.props.selectedDays.length){
-            content = <p>Please select one or more days</p>
+            // No days selected
         }else if (this.props.daysLoading){
             content = <div className="loading"></div>
         }else if (!this.props.daysLoading && this.props.selectedDays.length ){
@@ -55,7 +55,7 @@ class AllStats extends Component {
                         </div>
                     </div>
                     <div className="allstats__info">
-                        {this.props.stats.overal ? <AllStatsData stats={this.props.stats} /> : null}
+                        {this.props.stats.overal && !this.props.daysLoading ? <AllStatsData stats={this.props.stats} /> : null}
                     </div>
                 </div>
             </section>

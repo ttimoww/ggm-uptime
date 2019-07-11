@@ -282,13 +282,40 @@ section.allstats div.allstats__container div.allstats__chart div.allstats__chart
   }
 }
 section.allstats div.allstats__container div.allstats__info {
-  border: 1px solid blue;
   flex: 1;
+}
+@media (min-width: 576px) {
+  section.allstats div.allstats__container div.allstats__info {
+    display: flex;
+    align-items: center;
+  }
 }
 @media (min-width: 992px) {
   section.allstats div.allstats__container div.allstats__info {
     flex: 2;
   }
+}
+section.allstats div.allstats__container div.allstats__info div.allstats__info__container {
+  padding: 10px 0px 0px 0px;
+}
+section.allstats div.allstats__container div.allstats__info div.allstats__info__container p {
+  margin-top: 10px;
+}
+section.allstats div.allstats__container div.allstats__info div.allstats__info__container table {
+  margin: 0 auto;
+  max-width: 400px;
+}
+section.allstats div.allstats__container div.allstats__info div.allstats__info__container table div {
+  width: 50px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 3px solid transparent;
+}
+section.allstats div.allstats__container div.allstats__info div.allstats__info__container table th {
+  text-align: left;
+}
+section.allstats div.allstats__container div.allstats__info div.allstats__info__container table td {
+  width: 200px;
 }
 
 section.dailystats {
